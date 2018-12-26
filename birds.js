@@ -1,12 +1,14 @@
+// express
 var express = require('express');
 var router = express.Router();
-var ejs = require('ejs');
 
+// ejs templates
+var ejs = require('ejs');
 var plainView = '\n<%= reply %>\n';
 var htmlView = '\n<h1><%= reply %></h1>\n';
 var jsonView = '\n{"reply":"<%= reply %>"}\n';
 
-// add auth0 support
+// auth0 security
 var jwt = require('express-jwt');
 var jwtAuthz = require('express-jwt-authz');
 var jwksRsa = require('jwks-rsa');
