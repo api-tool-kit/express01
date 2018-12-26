@@ -26,8 +26,8 @@ var checkJwt = jwt({
 
 // middleware that is specific to this router
 router.use(function timeLog (req, res, next) {
-  console.log('Time: ', Date.now())
-  next()
+  console.log('Time: ', Date.now());
+  next();
 });
 
 // define the home page route
@@ -71,7 +71,7 @@ router.get('/about', checkJwt, function (req, res) {
   });
 });
 
-module.exports = router
+module.exports = router;
 
 function template(str, data, options) {
   return ejs.render(str, data, options);
