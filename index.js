@@ -9,5 +9,5 @@ var birds = require('./birds');
 var port = process.env.PORT || 8181;
 
 app.use('/birds',birds);
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+app.listen(port, () => console.log(`Example app listening on port ${port}!`));
 
