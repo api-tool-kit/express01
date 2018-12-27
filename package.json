@@ -4,7 +4,8 @@
   "description": "playing w/ express",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "newman run express01-collection.json",
+    "testx": "echo \"Error: no test specified\" && exit 1",
     "start": "node index",
     "prod": "NODE_ENV=production node index"
   },
