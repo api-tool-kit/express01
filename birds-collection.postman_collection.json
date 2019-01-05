@@ -1,0 +1,239 @@
+{
+	"info": {
+		"_postman_id": "8233058c-5109-8471-f325-2f7d916dbf01",
+		"name": "birds-collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "{{url}}/birds/",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests['Status code is 200'] = responseCode.code === 200;",
+							"",
+							"var body = JSON.parse(responseBody);",
+							"var reply = body.reply;",
+							"tests['reply contains Birds'] = reply.indexOf('Birds')!==-1;",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/birds/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"birds",
+						""
+					]
+				},
+				"description": "test birds endpoint"
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/birds/about/",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "470c2cb9-98e0-48c3-b48d-6da064d34e46",
+						"exec": [
+							"tests['Status code is 401'] = responseCode.code === 401;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/birds/about/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"birds",
+						"about",
+						""
+					]
+				},
+				"description": "test about endpoint"
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/birds/ (Cj)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "cc1d3903-8b7b-4e7a-8c4a-e8e546a80a9c",
+						"exec": [
+							"tests['Response code is 200'] = responseCode.code === 200;",
+							"",
+							"var body = JSON.parse(responseBody);",
+							"",
+							"tests['body is valid Cj'] = body.collection !== null;",
+							"tests['item contains reply'] = body.collection.items[0].data[0].name='reply';",
+							"tests['reply contains Birds'] = body.collection.items[0].data[0].value.indexOf('Birds') !== -1;",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "aa13ba7d-0b49-4518-851e-b1a4a2a106d3",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.collection+json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/birds/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"birds",
+						""
+					]
+				},
+				"description": "collection+json testing"
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{currentAccessToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "a84b06f3-7047-407a-8cfa-7739ccf4c149",
+				"type": "text/javascript",
+				"exec": [
+					"var echoPostRequest = {",
+					"  url: 'https://' + pm.environment.get('domain') + '/oauth/token',",
+					"  method: 'POST',",
+					"  header: 'Content-Type:application/json',",
+					"  body: {",
+					"    mode: 'application/json',",
+					"    raw: JSON.stringify({",
+					"        client_id : pm.environment.get('client_id'),",
+					"        client_secret : pm.environment.get('client_secret'),",
+					"        audience : pm.environment.get('audience'),",
+					"        grant_type : pm.environment.get('grant_type')",
+					"    })",
+					"  }",
+					"};",
+					"",
+					"var getToken = true;",
+					"",
+					"if (!pm.environment.get('accessTokenExpiry') || ",
+					"    !pm.environment.get('currentAccessToken')) {",
+					"    console.log('Token or expiry date are missing')",
+					"} else if (pm.environment.get('accessTokenExpiry') <= (new Date()).getTime()) {",
+					"    console.log('Token is expired')",
+					"} else {",
+					"    getToken = false;",
+					"    console.log('Token and expiry date are all good');",
+					"}",
+					"",
+					"if (getToken === true) {",
+					"    pm.sendRequest(echoPostRequest, function (err, res) {",
+					"    console.log(err ? err : res.json());",
+					"        if (err === null) {",
+					"            console.log('Saving the token and expiry date')",
+					"            var responseJson = res.json();",
+					"            pm.environment.set('currentAccessToken', responseJson.access_token)",
+					"    ",
+					"            var expiryDate = new Date();",
+					"            expiryDate.setSeconds(expiryDate.getSeconds() + responseJson.expires_in);",
+					"            pm.environment.set('accessTokenExpiry', expiryDate.getTime());",
+					"        }",
+					"    });",
+					"}"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "0a203858-dfc7-4acb-b863-5200ed38413a",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "365753e3-be5b-45ca-aecf-26ab01027fb4",
+			"key": "currentAccessToken",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "cb6ae47f-b698-4a8c-8742-709aa8313545",
+			"key": "accessTokenExpiry",
+			"value": "",
+			"type": "string"
+		}
+	]
+}

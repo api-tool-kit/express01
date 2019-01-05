@@ -7,6 +7,7 @@ var ejs = require('ejs');
 var plainView = '\n<%= reply %>\n';
 var htmlView = '\n<h1><%= reply %></h1>\n';
 var jsonView = '\n{"reply":"<%= reply %>"}\n';
+var cjView = '\n{"collection":{"items":[{"href":"/birds/","data":[{"name":"reply","value":"<%= reply %>"}]}]}}\n';
 
 // auth0 security
 var jwt = require('express-jwt');
@@ -46,6 +47,9 @@ router.get('/', function (req, res) {
     'application/json': function() {
       res.send(template(jsonView,{reply:reply}));
     },
+    'application/vnd.collection+json': function() {
+      res.send(template(cjView,{reply:reply}));
+    },
     'default': function() {
       res.status(406).send('Not Acceptable');
     }
@@ -66,6 +70,9 @@ router.get('/about', checkJwt, function (req, res) {
     },
     'application/json': function() {
       res.send(template(jsonView,{reply:reply}));
+    },
+    'application/vnd.collection+json': function() {
+      res.send(template(cjView,{reply:reply}));
     },
     'default': function() {
       res.status(406).send('Not Acceptable');
