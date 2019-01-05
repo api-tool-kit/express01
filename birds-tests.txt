@@ -6,7 +6,7 @@ birds-collection
   ┌
   │ 'Token or expiry date are missing'
   └
-  POST https://mamund.auth0.com/oauth/token [200 OK, 1.25KB, 470ms]
+  POST https://mamund.auth0.com/oauth/token [200 OK, 1.25KB, 433ms]
   ┌
   │ { access_token:
   │    'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik9UTT
@@ -14,16 +14,16 @@ birds-collection
   │ TlRoR05rRXdRZyJ9.eyJpc3MiOiJodHRwczovL21hbXVuZC5hdXRoM
   │ C5jb20vIiwic3ViIjoiclloNUk4OGFva09yckJJaEQxcTE1S0M2dXd
   │ Ma2RxT0VAY2xpZW50cyIsImF1ZCI6Imh0dHBzOi8vcXVpY2tzdGFyd
-  │ HMvYXBpIiwiaWF0IjoxNTQ2NzMwMTQ0LCJleHAiOjE1NDY4MTY1NDQ
+  │ HMvYXBpIiwiaWF0IjoxNTQ2NzMxODM5LCJleHAiOjE1NDY4MTgyMzk
   │ sImF6cCI6InJZaDVJODhhb2tPcnJCSWhEMXExNUtDNnV3TGtkcU9FI
-  │ iwiZ3R5IjoiY2xpZW50LWNyZWRlbnRpYWxzIn0.GvJOqvSXVfKHFlI
-  │ ZyVfF4mgXw5Jwfr1sFTYFPZkTxYo9uXPIQSeKqigdh1_NyhcaSLahZ
-  │ PoNVEgOiHLBzRpw3v1gR-6FhGsEI6D3uf0xdZ-M6LNcblJgOswiZa9
-  │ IDMgLTjeIO1DQqWF3hFcA9Rv2Z8TlBT-CCa044K2cGlhGgMU006ksV
-  │ F2crYGpg9foMrxPotY6tbP4FVE3TZFP1q0f8CAinr_YlIJ98I1F1_D
-  │ XJ4NJJirX9JGvEjzwnaEnFli43tccxA4gkuipsVYTElz4P8mRtQ89_
-  │ nhQrWoRqj6NnGRMNz-a-2ROBQytpYkuS4xxNjF2kgctzpmUciMZwVM
-  │ 2vA',
+  │ iwiZ3R5IjoiY2xpZW50LWNyZWRlbnRpYWxzIn0.iwGtWVWnXy35g9R
+  │ HeHaorZLPyebGNxjB1Gh5YcvwS1wfZAqaA1JK5xQZXkYWy_V4qcR1H
+  │ GVFVNzjg-josK2ZSGq1TLAKSiZ5RLm8umjb0O9wExpu_8_MmNKn33_
+  │ lI2KZlrqoKNI5sQCfo4a7Uzd8meWNK2SSOjTeDjVmvJOIX4z7yAxBA
+  │ BUJa03ZveFFbK5NLtSjY6rglFdWLC9pwXwvXfkj1aDDkVxqTjyZlSw
+  │ gRKnQsbYIYQkT0rXII6VzqqrOCz3aVQZfswyjpiQxnQ-KYWaZIVMSu
+  │ _oN49gyObfU5gvmV4pnRRu2GGUwf4tQwdCYoj5KVf-vHe-ZvPP8hfe
+  │ Jcg',
   │   expires_in: 86400,
   │   token_type: 'Bearer' }
   │ 'Saving the token and expiry date'
@@ -43,7 +43,7 @@ birds-collection
   ┌
   │ 'Token and expiry date are all good'
   └
-  GET localhost:8181/birds/ [200 OK, 340B, 2ms]
+  GET localhost:8181/birds/ [200 OK, 340B, 3ms]
   ✓  Response code is 200
   ✓  body is valid Cj
   ✓  item contains reply
@@ -62,11 +62,11 @@ birds-collection
 ├─────────────────────────┼──────────┼──────────┤
 │              assertions │        7 │        1 │
 ├─────────────────────────┴──────────┴──────────┤
-│ total run duration: 665ms                     │
+│ total run duration: 630ms                     │
 ├───────────────────────────────────────────────┤
 │ total data received: 968B (approx)            │
 ├───────────────────────────────────────────────┤
-│ average response time: 120ms                  │
+│ average response time: 111ms                  │
 └───────────────────────────────────────────────┘
 
   #  failure         detail                        
