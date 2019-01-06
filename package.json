@@ -4,8 +4,7 @@
   "description": "playing w/ express",
   "main": "index.js",
   "scripts": {
-    "test": "newman run birds-collection.postman_collection.json -e testEnv.postman_environment.json",
-    "testx": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index",
     "prod": "NODE_ENV=production node index"
   },
