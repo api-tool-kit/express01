@@ -6,7 +6,7 @@ birds-collection
   ┌
   │ 'Token or expiry date are missing'
   └
-  POST https://mamund.auth0.com/oauth/token [200 OK, 1.25KB, 462ms]
+  POST https://mamund.auth0.com/oauth/token [200 OK, 1.25KB, 454ms]
   ┌
   │ { access_token:
   │    'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik9UTT
@@ -14,16 +14,16 @@ birds-collection
   │ TlRoR05rRXdRZyJ9.eyJpc3MiOiJodHRwczovL21hbXVuZC5hdXRoM
   │ C5jb20vIiwic3ViIjoiclloNUk4OGFva09yckJJaEQxcTE1S0M2dXd
   │ Ma2RxT0VAY2xpZW50cyIsImF1ZCI6Imh0dHBzOi8vcXVpY2tzdGFyd
-  │ HMvYXBpIiwiaWF0IjoxNTQ2NzM4NDU3LCJleHAiOjE1NDY4MjQ4NTc
+  │ HMvYXBpIiwiaWF0IjoxNTQ2NzQwMjEwLCJleHAiOjE1NDY4MjY2MTA
   │ sImF6cCI6InJZaDVJODhhb2tPcnJCSWhEMXExNUtDNnV3TGtkcU9FI
-  │ iwiZ3R5IjoiY2xpZW50LWNyZWRlbnRpYWxzIn0.QZ0b-nbIKkE6BGd
-  │ fWSMToLJjYskADFEjPggivanliCVvbCvlzAWeoqIZo7Ip2X1z0oiIG
-  │ _5DiFQbYQis5k3Z2xAtBDYcEg19aLyMlJo9bZ6bMs8CtRffek7aYby
-  │ 3-D3ZWFkAbTNIJ7vjlDKjT-2WwSUz4REXX7ViGZF_-meW8Ww4pp8MO
-  │ FSsmnXFCByMUzq6-P4Gd0kCVNTv3WHRUPkj4vUWFhUgins5h_HxGEj
-  │ 6xEy3APN_zC8bD9x3A2rxKgWM8xpBnF1m7y6cSivTwOfzc9AgdSzVs
-  │ Bx2A0_yWgV3rIat11rzmYrQK1k2UWgIcMaQ06ikM7mCERVhZ8AduQV
-  │ ATg',
+  │ iwiZ3R5IjoiY2xpZW50LWNyZWRlbnRpYWxzIn0.JtPaSZNG0qCBYGA
+  │ HflrMi_0dCQLZXqRbtEi7ZuMGEJVAvToDgc3OfwoQlySI7ultIa7qB
+  │ XlILqrp5qzYYyGJKUHec1UnAXG2Wxat6CQNqW38ANJIiSWH9Buj0an
+  │ okfNqaC3u7CqgWTYGMtSKKJ73SGB3oer4c98CuMjSYNGcaFeX8pb5-
+  │ ocXYrfGxxDGO4Krx2E3D-KvERZSRFn8_rfNzatxyJ-xmDLV9jeEIGb
+  │ Uqd8kuJ_5uGwaBIwtebIGwfNk-NurdZ5OeNfYmsburFhNiiU4otQrd
+  │ M4ljuAUAquS8k8ETyjGzApBGvOvsN5cKahY_OaKvEjO6471yesvTw4
+  │ oEw',
   │   expires_in: 86400,
   │   token_type: 'Bearer' }
   │ 'Saving the token and expiry date'
@@ -62,11 +62,11 @@ birds-collection
 ├─────────────────────────┼──────────┼──────────┤
 │              assertions │        7 │        1 │
 ├─────────────────────────┴──────────┴──────────┤
-│ total run duration: 651ms                     │
+│ total run duration: 667ms                     │
 ├───────────────────────────────────────────────┤
 │ total data received: 968B (approx)            │
 ├───────────────────────────────────────────────┤
-│ average response time: 118ms                  │
+│ average response time: 116ms                  │
 └───────────────────────────────────────────────┘
 
   #  failure         detail                        
@@ -75,3 +75,4 @@ birds-collection
                      expected false to be truthy   
                      at assertion:0 in test-script 
                      inside "{{url}}/birds/about/" 
+collection run complete!
